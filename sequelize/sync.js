@@ -55,7 +55,7 @@ export const Companies = sequelizeConnection.define("Companies", {//se creaza ta
         type: Sequelize.DECIMAL(18, 2),
     }
 });
-Jobs.hasMany(Companies, {//legatura one to many-min 28  yt 
+Jobs.hasMany(Companies, {//legatura one to many
     foreignKey: "JobId",
     onDelete: "CASCADE",
     foreignKeyConstraint: true,
