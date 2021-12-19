@@ -11,7 +11,7 @@ const sequelizeConnection = new Sequelize(
     "1995",
     sequelizeConfigProps//are poroprietatile din config.js host localhost etc
 );
-//creare entitati:min45
+//creare entitati
 //Enities
 //facem one to one, one to many 
 //entites 1:N
@@ -60,7 +60,6 @@ Jobs.hasMany(Companies, {//legatura one to many-min 28  yt
     onDelete: "CASCADE",
     foreignKeyConstraint: true,
 });
-////////////////////////////////////////////////////////////////////////////////////////////////////
 // ----------1:1  ---------- //
 export var Candidates = sequelizeConnection.define("Candidates", {//se creaza tabela companies in HS 
     CandidateId: {
@@ -99,13 +98,11 @@ export const Profiles = sequelizeConnection.define("Profiles", {
 Candidates.hasOne(Profiles, { foreignKey: "CandidateId" });
 Profiles.belongsTo(Candidates, { foreignKey: "CandidateId" });
 // ---------- 1:1 -------sfarsit--- //
-// Candidates.hasMany(Profiles, {//legatura one to many-min 28  DE MINE PT LEGATURA TUTUROR
+// Candidates.hasMany(Profiles, {//legatura one to many
 //     foreignKey: "CandidatId",
 //     onDelete: "CASCADE",
 //     foreignKeyConstraint: true,
 // });
-
-
 
 sequelizeOperationAPI.init(sequelizeConnection);//ne autentificam , face in operation-api.js functii init
 export { sequelizeConnection };//export squelize connection
